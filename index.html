@@ -9,13 +9,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <style>
       :root {
-        --bg: #282a36;
-        --fg: #f8f8f2;
-        --accent: #bd93f9;
-        --green: #50fa7b;
-        --cyan: #8be9fd;
-        --pink: #ff79c6;
-        --yellow: #f1fa8c;
+        --bg: #0d0d0d;
+        --fg: #ffffff;
+        --accent: #ffffff;
+        --border: rgba(255, 255, 255, 0.12);
       }
 
       * {
@@ -32,32 +29,21 @@
         scroll-behavior: smooth;
       }
 
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 20%, rgba(189, 147, 249, 0.1), transparent);
-        z-index: -1;
-      }
-
       header {
-        background-color: #1e1f29;
-        padding: 1.2rem 3rem;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: sticky;
         top: 0;
+        background-color: var(--bg);
         z-index: 100;
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
       }
 
       header h1 {
+        font-size: 1.4rem;
         color: var(--accent);
-        font-size: 1.6rem;
       }
 
       nav a {
@@ -65,11 +51,11 @@
         margin-left: 2rem;
         text-decoration: none;
         font-weight: 600;
-        transition: 0.3s;
+        transition: color 0.3s;
       }
 
       nav a:hover {
-        color: var(--pink);
+        color: #888;
       }
 
       .hero {
@@ -79,30 +65,30 @@
         align-items: center;
         padding: 5rem 2rem;
         text-align: center;
+        border-bottom: 1px solid var(--border);
       }
 
       .hero h2 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--accent);
       }
 
       .hero p {
-        font-size: 1.2rem;
-        color: var(--cyan);
-        max-width: 700px;
+        font-size: 1.1rem;
+        max-width: 600px;
+        color: #aaa;
       }
 
       .section {
         max-width: 1000px;
         margin: 4rem auto;
         padding: 0 2rem;
+        border-bottom: 1px solid var(--border);
       }
 
       .section h2 {
         text-align: center;
         margin-bottom: 2rem;
-        color: var(--accent);
       }
 
       ul.tech-list {
@@ -114,9 +100,9 @@
       }
 
       ul.tech-list li {
-        background: #44475a;
+        border: 1px solid var(--border);
         padding: 0.6rem 1.2rem;
-        border-radius: 8px;
+        border-radius: 6px;
         color: var(--fg);
       }
 
@@ -125,22 +111,14 @@
         overflow-x: auto;
         gap: 1rem;
         padding: 1rem 0;
-        scroll-snap-type: x mandatory;
       }
 
       .carousel-item {
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-        background: #44475a;
-        border-radius: 10px;
+        min-width: 240px;
+        background: #1a1a1a;
+        border: 1px solid var(--border);
+        border-radius: 8px;
         padding: 1rem;
-        color: var(--fg);
-        min-width: 250px;
-      }
-
-      .trophies {
-        text-align: center;
-        margin-top: 2rem;
       }
 
       .trophies img {
@@ -148,13 +126,10 @@
       }
 
       footer {
-        background-color: #1e1f29;
-        color: var(--cyan);
         text-align: center;
         padding: 2rem;
-        margin-top: 5rem;
         font-size: 0.9rem;
-        border-top: 1px solid #44475a;
+        border-top: 1px solid var(--border);
       }
 
       .socials {
@@ -169,49 +144,37 @@
       }
 
       .socials a:hover {
-        color: var(--pink);
+        color: #888;
       }
     </style>
   </head>
   <body>
-    <header data-aos="fade-down">
+    <header>
       <h1>Kagan.dev</h1>
       <nav>
         <a href="#about">About</a>
-        <a href="#tech">Tech</a>
-        <a href="#repos">Repos</a>
+        <a href="#tech">Stack</a>
+        <a href="#repos">Projects</a>
         <a href="#trophies">Trophies</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <section class="hero" data-aos="fade-up">
-      <h2>
-        <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30" />
-        Hi, I'm Kagan 👨‍💻
-      </h2>
+    <section class="hero">
+      <h2>I'm Kagan 👨‍💻</h2>
+      <p>I build backend-first systems, automation bots, and clean full-stack apps. Focused on productivity, quality, and elegant code.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2>🧠 About Me</h2>
       <p>
-        A full-stack developer who writes bots that write code.
-        Passionate about automation, GitHub workflows, and modern backend magic.
+        I craft bots that work like developers. My expertise lies in automating GitHub workflows,
+        building scalable systems, and integrating AI into the dev process. Favorite stack: Node.js, Docker, GitHub Actions.
       </p>
     </section>
 
-    <section id="about" class="section" data-aos="fade-up">
-      <h2>👨‍💻 About Me</h2>
-      <p>
-        I'm on a mission to automate the world. From GitHub bots to CI/CD pipelines,
-        I love turning repetitive tasks into elegant systems. Currently building:
-      </p>
-      <ul>
-        <li>✅ GitHub PR automation tools</li>
-        <li>✅ Self-writing codebots</li>
-        <li>✅ Auto-README generators</li>
-        <li>✅ AI-based refactoring assistants</li>
-      </ul>
-    </section>
-
-    <section id="tech" class="section" data-aos="fade-up">
-      <h2>🚀 Technologies</h2>
+    <section id="tech" class="section">
+      <h2>💻 Tech Stack</h2>
       <ul class="tech-list">
         <li>TypeScript</li>
         <li>Node.js</li>
@@ -220,86 +183,50 @@
         <li>Docker</li>
         <li>GitHub Actions</li>
         <li>MongoDB</li>
-        <li>Vercel</li>
-        <li>Jest</li>
-        <li>OpenAI API</li>
+        <li>OpenAI</li>
       </ul>
     </section>
 
-    <section id="repos" class="section" data-aos="fade-up">
-      <h2>📂 Popular Repositories</h2>
+    <section id="repos" class="section">
+      <h2>📁 Projects</h2>
       <div class="carousel">
         <div class="carousel-item">
           <h3>auto-pr-bot</h3>
-          <p>Automates PR creation across forks. Achievement friendly.</p>
+          <p>Automates PR creation across forks. Achievement-friendly and scalable.</p>
         </div>
         <div class="carousel-item">
-          <h3>github-actions-dockerizer</h3>
-          <p>Inject Dockerfile & CI into any repo with automation.</p>
+          <h3>github-dockerizer</h3>
+          <p>Adds Docker support + GitHub Actions to any repo.</p>
         </div>
         <div class="carousel-item">
-          <h3>galaxy-brain-pipeline</h3>
-          <p>Auto discussion answer + accept = badge unlocked.</p>
+          <h3>galaxy-brain</h3>
+          <p>AI-powered GitHub discussion answer & accept bot.</p>
         </div>
       </div>
     </section>
 
-    <section id="trophies" class="section" data-aos="zoom-in">
+    <section id="trophies" class="section">
       <h2>🏆 GitHub Trophies</h2>
       <div class="trophies">
         <img src="https://github-profile-trophy.vercel.app/?username=kgnio&theme=dracula&margin-w=15" alt="GitHub Trophies" />
       </div>
     </section>
 
-    <section id="contact" class="section" data-aos="fade-up">
-      <h2>📫 Let's Connect</h2>
-      <p class="center">
-        You can reach me on GitHub or drop a PR to chat via code. I’m always up for creative dev collabs.
-      </p>
-      <div class="socials center">
-        <a href="https://github.com/kgnio" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="muhtarkage@outlook.com">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://linkedin.com/in/ogulkagan-mamak" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
+    <section id="contact" class="section">
+      <h2>📬 Contact</h2>
+      <p>If you're building cool tech or automating ideas, let's connect.</p>
+      <div class="socials">
+        <a href="https://github.com/kgnio" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:muhtarkage@outlook.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/ogulkagan-mamak" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </section>
 
-    <footer data-aos="fade-in">
-      &copy; 2025 kgnio | Designed in <span style="color: var(--accent);">Dracula Mode</span>
+    <footer>
+      &copy; 2025 kgnio — All rights reserved.
     </footer>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    function toggleTheme() {
-      const root = document.documentElement;
-      const currentBg = getComputedStyle(root).getPropertyValue('--bg');
-      if (currentBg.includes('#282a36')) {
-        root.style.setProperty('--bg', '#f8f8f2');
-        root.style.setProperty('--fg', '#282a36');
-      } else {
-        root.style.setProperty('--bg', '#282a36');
-        root.style.setProperty('--fg', '#f8f8f2');
-      }
-    }
 
-    async function loadRepos() {
-      const res = await fetch('https://api.github.com/users/kgnio/repos');
-      const data = await res.json();
-      const container = document.getElementById('repo-carousel');
-      container.innerHTML = '';
-      data.slice(0, 6).forEach(repo => {
-        const div = document.createElement('div');
-        div.className = 'carousel-item';
-        div.innerHTML = `<h3>${repo.name}</h3><p>${repo.description || 'No description'}</p>`;
-        container.appendChild(div);
-      });
-    }
-    loadRepos();
-  </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
   </body>
 </html>
